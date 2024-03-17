@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo do número</title>
+    <script src="script.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css"> <!-- ele conecta ao arquivo CSS-->
+
+    
+    
+</head>
+<body>
+    <main> 
+        <div class="Container">
+            <div class="container_texto">
+                <h1 id="h1Texto"></h1> <br>
+                <p id="p1"></p>
+            </div>
+            
+            <input type="number" min="1" max="10" class="ContainerInput" id="ContainerInput">
+            
+            <div class="ContainerBotoes">
+                <button onclick="verificarTentativa()" class="ContainerBotao">Testar</button>
+                <button onclick="reiniciarJogo()" class="ContainerBotao">Novo Jogo</button>
+            </div>
+
+        </div>
+
+    </main>
+</body>
+</html>
