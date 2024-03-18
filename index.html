@@ -16,7 +16,9 @@
             <div class="container_texto">
                 <h1 id="h1Texto"></h1>
                 <p id="pTexto">Escolha um número entre 1 e 100</p> 
-                <p id="p1"></p>
+                <div id="aviso">
+                    <p class="p1" id="p1"></p>
+                </div>
             </div>
             
             <div class="ContainerBotoes">
@@ -25,7 +27,7 @@
             </div>
 
             <div class="ContainerBotoes">
-                <button onclick="reiniciarJogo()" class="ContainerBotao">Novo Jogo</button>
+                <button onclick="reiniciarJogo()" class="ContainerBotao reiniciar" id="botaoReiniciar">Novo Jogo</button>
             </div>
             <p id="pNumeroTentativas">Tentativas: 0</p>
             <p id="p2NumerosTestados">Números testados: Nenhum</p>
