@@ -5,9 +5,10 @@ let numeroTentativas = 1;
 function gerarNumeroAleatorio(){ //função que gera um numero aleatório
         return parseInt(Math.random()* numeroMaximo + 1); 
 }  
-
-window.onload = function(){
-    exibirMensagemInicial();
+function listaNumeros(){
+    const numerosTentativasArr = [];
+    numerosTentativasArr.push(numeroEscolhido);
+    exibirTextoNaTela('p2NumerosTestados', `Números testados: ${numerosTentativasArr.join(",")}`);
 }
 
 function exibirTextoNaTela(id, texto) {
@@ -17,35 +18,54 @@ function exibirTextoNaTela(id, texto) {
 
 function exibirMensagemInicial() {
     exibirTextoNaTela('h1Texto', 'Jogo do número secreto');
-    exibirTextoNaTela('p1', `Escolha um número entre 1 e ${numeroMaximo}`);
+    exibirTextoNaTela('pTexto', `Escolha um número entre 1 e ${numeroMaximo}`);
+    exibirTextoNaTela('p1', " ");
+    exibirTextoNaTela('pNumeroTentativas', `Tentativas: 0`);
+    exibirTextoNaTela('p2NumerosTestados', `Números testados: nenhum`);
+
 }
 
 console.log('O número secreto é ' + numeroAleatorio) //gera um comentario no console 
-
 function verificarTentativa(){
     let numeroEscolhido = document.getElementById("ContainerInput").value;
 
     if (numeroEscolhido == numeroAleatorio){ //ACERTO
-        exibirTextoNaTela('h1Texto', 'Paranbéns, você acertou!');
+        exibirTextoNaTela('h1Texto', 'Parabéns, você acertou!');
         let palavraTentativa = numeroTentativas > 1 ? 'tentativas' : 'tentativa'; //operador ternario, se (? substitui o if) o numero for maior que 1 (true) então vai ser tentativas, senão (o : subs. o else), vai ser tentativa
-        exibirTextoNaTela('p1', `você descobriu o nomero secreto ${numeroAleatorio} em ${numeroTentativas} ${palavraTentativa}`);
+        exibirTextoNaTela('p1', `o número secreto era ${numeroAleatorio}, e você descobriu em ${numeroTentativas} ${palavraTentativa}`);
+        exibirTextoNaTela('pTexto', ``);
+
     } else { //ERRO
         if (numeroEscolhido > numeroAleatorio){
-            exibirTextoNaTela('p1', 'O número secreto é menor');
+            exibirTextoNaTela('p1', `O número secreto é menor que ${numeroEscolhido}`);
         } else {
-            exibirTextoNaTela('p1', 'O número secreto é maior');
-
+            exibirTextoNaTela('p1', `O número secreto é maior que ${numeroEscolhido}`);
         }
+
+        console.log(numerosTentativasArr);
+        listaNumeros();
         numeroTentativas++;
+        exibirTextoNaTela('pNumeroTentativas', `Tentativas: 1`);
         limparCampo();
     }
     
 }
 
+// numeroEscolhido.addEventListener("keypress", function(event) {
+//     if (event.key === "Enter") {
+//         event.preventDefault();
+//         verificarTentativa();
+//     }
+// });
+
+
 function limparCampo(){
     numeroEscolhido = document.getElementById("ContainerInput");
     numeroEscolhido.value = '';
+}
 
+window.onload = function(){
+    exibirMensagemInicial();
 }
 
 function reiniciarJogo(){

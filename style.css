@@ -1,15 +1,17 @@
 :root{
     --cor-background: #222831;
     --cor-container: #31363F;
-    --cor-texto: #EEEEEE;
+    --cor-branco: #EEEEEE;
     --cor-borda: #14181d;
+    --cor-botao: #344955;
+    --cor-botaoHover: #485b66;
 }
 
 *{
 box-sizing: border-box;
 margin: 0;
 padding: 0;
-color: var(--cor-texto);
+color: var(--cor-branco);
 
 }
 
@@ -36,19 +38,63 @@ body{
 }
 
 .ContainerInput{
-    color: var(--cor-borda);
+    color: black;
+    text-align: center;
+    font-size: 1.2em;
+    border-radius: 6px;
+    appearance: text-field;
+    padding: 0.6em 0.6em 0.6em 1em ;
+    width: 80px;
+    cursor: text;
+
+
 }
 
 .ContainerBotoes{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    /* gap: 1% 1%; */
+    padding: 5px;   /* superior | direita | inferior | esquerda */
 
 }
 
 .ContainerBotao{
-    background-color: black;
-    border: var(--cor-borda);
+    background-color: var(--cor-botao);
+    border: 1px solid var(--cor-borda);
     padding: 10px;
+    height: 49px;
+    width: 100px;
     border-radius: 6px;
+    cursor: pointer;
+
+}
+
+.ContainerBotao:hover{
+    background-color: var(--cor-botaoHover);
+}
+
+.testar{
+    font-size: 1.2em;
+}
+
+h1{
+    padding-bottom: 3px;
+}
+
+.error, .sucess{
+    padding: 0.5em 0;
+    animation: pop 0.3s forwards;
+    transform: scale(0);
+}
+
+/* animação  */
+@keyframes pop{ 
+    0%{
+        transform: scale(0);
+    }
+
+    100%{
+        transform: scale(1);
+    }
 }
