@@ -27,35 +27,38 @@ function verificarTentativa(){
     let numeroEscolhido = document.getElementById("ContainerInput").value;
 
     if (numeroEscolhido == numeroAleatorio){ //ACERTO
-        aviso.classList.add("sucess");        
+        p1.classList.remove("error");
+
+        setTimeout(() => {
+            p1.classList.add("sucess");
+        }, 10);      
 
         exibirTextoNaTela('h1Texto', 'Parabéns, você acertou!');
         let palavraTentativa = numeroTentativas > 1 ? 'tentativas' : 'tentativa'; //operador ternario, se (? substitui o if) o numero for maior que 1 (true) então vai ser tentativas, senão (o : subs. o else), vai ser tentativa
         exibirTextoNaTela('p1', `o número secreto era ${numeroAleatorio}, e você descobriu em ${numeroTentativas} ${palavraTentativa}`);
         exibirTextoNaTela('pTexto', ``);
         
-    } else { //ERRO
-        if (numeroEscolhido > numeroAleatorio){
-
-            exibirTextoNaTela('p1', `O número secreto é menor que ${numeroEscolhido}`);
-            aviso.classList.remove("error");
-
+    } else { //ERRO            
+        if (numeroEscolhido == ""){
+            alert('insira um número válido');
+        } else{
             setTimeout(() => {
                 p1.classList.add("error");
             }, 10);
-        } else {
-            setTimeout(() => {
-                p1.classList.add("error");
-            }, 10);
-            exibirTextoNaTela('p1', `O número secreto é maior que ${numeroEscolhido}`);
-        }
+            if (numeroEscolhido > numeroAleatorio){
+                exibirTextoNaTela('p1', `O número secreto é menor que ${numeroEscolhido}`);
+            } else {
+                exibirTextoNaTela('p1', `O número secreto é maior que ${numeroEscolhido}`);
+            }
 
-        console.log(numerosTentativasArr);
-        listaNumeros(numeroEscolhido);
-        numeroTentativas++;
-        exibirTextoNaTela('pNumeroTentativas', `Tentativas: ${numeroTentativas}`);
-        limparCampo();
+            console.log(numerosTentativasArr);
+            listaNumeros(numeroEscolhido);
+            numeroTentativas++;
+            exibirTextoNaTela('pNumeroTentativas', `Tentativas: ${numeroTentativas}`);
+            limparCampo();
+        } 
     }
+
 }
 
 function listaNumeros(numeroEscolhido){
@@ -74,6 +77,7 @@ function limparCampo(){
 window.onload = function(){
     aviso = document.getElementById('aviso'); // Atribuir o elemento aviso após o carregamento da página
     exibirMensagemInicial();
+    p1.classList.remove("success", "error");
 
     let containerInput = document.getElementById("ContainerInput");
     containerInput.addEventListener("keydown", function(event) {
@@ -91,4 +95,6 @@ function reiniciarJogo(){
     numerosTentativasArr = []; // Limpar a lista de números tentados
     exibirMensagemInicial();
     document.getElementById("botaoReiniciar").setAttribute('disabled', true);
+    p1.classList.remove("success", "error");
+
 }

@@ -1,4 +1,5 @@
-:root{
+/* Variáveis CSS */
+:root {
     --cor-background: #222831;
     --cor-container: #31363F;
     --cor-branco: #EEEEEE;
@@ -7,15 +8,16 @@
     --cor-botaoHover: #485b66;
 }
 
-*{
-box-sizing: border-box;
-margin: 0;
-padding: 0;
-color: var(--cor-branco);
-
+/* Estilos globais */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: var(--cor-branco);
 }
 
-body{
+/* Estilos do corpo da página */
+body {
     box-sizing: border-box;
     display: flex;
     align-items: center;
@@ -25,41 +27,39 @@ body{
     margin: 0;
 }
 
-.Container{
+/* Estilos do container principal */
+.Container {
     box-sizing: border-box;
     padding: 5%;
     justify-content: space-between;
     align-content: center;
     background-color: var(--cor-container);
-    border: 3px solid var(--cor-borda);  
+    border: 3px solid var(--cor-borda);
     border-radius: 6px;
     width: 25rem;
-    
 }
 
-.ContainerInput{
+/* Estilos do campo de entrada */
+.ContainerInput {
     color: black;
     text-align: center;
     font-size: 1.2em;
     border-radius: 6px;
     appearance: text-field;
-    padding: 0.6em 0.6em 0.6em 1em ;
+    padding: 0.6em 0.6em 0.6em 1em;
     width: 80px;
     cursor: text;
-
-
 }
 
-.ContainerBotoes{
+/* Estilos dos botões e seus contêineres */
+.ContainerBotoes {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    /* gap: 1% 1%; */
-    padding: 5px;   /* superior | direita | inferior | esquerda */
-
+    padding: 5px;
 }
 
-.ContainerBotao{
+.ContainerBotao {
     background-color: var(--cor-botao);
     border: 1px solid var(--cor-borda);
     padding: 10px;
@@ -67,22 +67,22 @@ body{
     width: 100px;
     border-radius: 6px;
     cursor: pointer;
-
 }
 
-.ContainerBotao:hover{
+.ContainerBotao:hover {
     background-color: var(--cor-botaoHover);
 }
 
-.testar{
+/* Outros estilos */
+.testar {
     font-size: 1.2em;
 }
 
-h1{
+h1 {
     padding-bottom: 3px;
 }
 
-.error, .sucess{
+.error, .success {
     padding: 0.5em 0;
     animation: pop 0.4s forwards;
     transform: scale(0);
@@ -92,19 +92,19 @@ h1{
     background-color: #872341;
     color: var(--cor-branco);
     border-radius: 4px;
-  }
-  .success {
+}
+
+.success {
     background-color: #b9ffd5;
     color: #05c451;
-  }
+}
 
-/* animação  */
-@keyframes pop{ 
-    0%{
+/* Animação */
+@keyframes pop {
+    0% {
         transform: scale(0);
     }
-
-    100%{
+    100% {
         transform: scale(1);
     }
 }
