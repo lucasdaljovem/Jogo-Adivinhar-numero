@@ -3,6 +3,9 @@
 - Esse é um jogo simples, feito para exercitar as habilidades básicas de programação em JavaScript, HTML e CSS.
 - O Jogo consiste em adivinhar o número secreto, testando números entre 1 e 100.
 
+![image](https://github.com/user-attachments/assets/c2c5c989-5aab-4559-966c-43d38b4f2547)
+
+
 ## Instalação
 
 - Você pode executar o código baixando e executando ele, ou acessar pelo link: <a href="https://jogo-adivinhar-numero-theta.vercel.app" target="_blank">https://jogo-adivinhar-numero-theta.vercel.app</a>
